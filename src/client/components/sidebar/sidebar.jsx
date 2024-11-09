@@ -8,7 +8,7 @@ import { FaShippingFast } from "react-icons/fa";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { GiFactory } from "react-icons/gi";
 // import SidebarModal from './sidebarModal';
-const Sidebar = () => {
+const SidebarOne = () => {
     const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
     const sidebarToggle = useSelector((state) => state.sidebar.toggleSidebar)
     const toggleTheme = useSelector((state) => state.app.toggleTheme)
@@ -105,4 +105,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default SidebarOne
