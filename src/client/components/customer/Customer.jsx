@@ -9,29 +9,29 @@ import {
 } from "@nextui-org/react";
 import React, { useEffect } from "react";
 import { ImSad } from "react-icons/im";
-
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSupplierList } from "../../feature/supplier/supplierSlice";
 import Loading from "../loading/Loading";
+import { fetchCustomerList } from "../../feature/customer/customerSlice";
 
-const SupplierList = () => {
-  const { supplierList, isError, isLoading, error } = useSelector(
-    (state) => state.supplier
+const CustomerListNew = () => {
+  const { customerList, isError, isLoading, error } = useSelector(
+    (state) => state.customer
   );
 
   const dispatch = useDispatch();
 
-  console.log(supplierList, error);
 
   useEffect(() => {
-    dispatch(fetchSupplierList());
+    dispatch(fetchCustomerList());
   }, [dispatch]);
+
+
 
   const columns = [
     {
       key: "name",
-      label: "NAME",
+      label: "Name",
     },
     {
       key: "fullName",
@@ -46,43 +46,19 @@ const SupplierList = () => {
       label: "Currency",
     },
     {
-      key: "tradeTerms",
-      label: "Trade Terms",
-    },
-    {
-      key: "acceptable",
-      label: "Acceptable O/S ratio",
-    },
-    {
       key: "contactName",
       label: "Contact Name",
     },
     {
-      key: "email;",
-      label: "E-mail",
+      key: "email",
+      label: "Email",
     },
     {
-      key: "pay",
-      label: "Pay",
+      key: "execess_short",
+      label: "Excess/Short",
     },
     {
-      key: "time",
-      label: "Time",
-    },
-    {
-      key: "adv",
-      label: "Adv(%)",
-    },
-    {
-      key: "advTerm ",
-      label: "Adv.Term",
-    },
-    {
-      key: "piMi",
-      label: "PI/MI/ETD",
-    },
-    {
-      key: "bankName ",
+      key: "bankName",
       label: "Bank Name",
     },
     {
@@ -90,8 +66,8 @@ const SupplierList = () => {
       label: "Bank Address",
     },
     {
-      key: "bankAccountNO",
-      label: "Bank Account NO.",
+      key: "bankAccNo",
+      label: "Bank Account No",
     },
     {
       key: "swiftCode",
@@ -102,16 +78,16 @@ const SupplierList = () => {
       label: "Address",
     },
     {
-      key: "tel",
-      label: "Tel/MOb",
-    },
-    {
-      key: "staff",
-      label: "Staff",
+      key: "tel_mob",
+      label: "Tel/. Mob",
     },
     {
       key: "logo",
       label: "Logo",
+    },
+    {
+      key: "staff",
+      label: "Staff",
     },
     {
       key: "remarks",
@@ -122,17 +98,20 @@ const SupplierList = () => {
   const [selectedKeys, setSelectedKeys] = useState(new Set(["2"]));
   return (
     <div className="w-full overflow-hidden">
-      <h1 className="mb-5 font-bold text-orange-400 text-large">Supplier List</h1>
+      <h1 className="mb-5 font-bold text-orange-400 text-large">
+        Customer List
+      </h1>
       {isError && (
         <h1 className="text-orange-400 flex items-center justify-center gap-3">
           {error}! <ImSad />
         </h1>
       )}
       {isLoading && <Loading />}
-      {!isLoading && !isError && supplierList?.length === 0 && (
+      {!isLoading && !isError && customerList?.length === 0 && (
         <h1 className="text-orange-500">No data found...</h1>
       )}
-      {!isLoading && !isError && supplierList?.length > 0 && (
+
+      {!isLoading && !isError && customerList?.length > 0 && (
         <Table
           aria-label="Controlled table example with dynamic content"
           selectionMode="multiple"
@@ -148,8 +127,8 @@ const SupplierList = () => {
           <TableBody>
             {!isLoading &&
               !isError &&
-              supplierList?.length > 0 &&
-              supplierList.map((sl) => (
+              customerList?.length > 0 &&
+              customerList.map((sl) => (
                 <TableRow key={sl.key}>
                   {(columnKey) => (
                     <TableCell>{getKeyValue(sl, columnKey)}</TableCell>
@@ -163,4 +142,4 @@ const SupplierList = () => {
   );
 };
 
-export default SupplierList;
+export default CustomerListNew;

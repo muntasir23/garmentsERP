@@ -197,9 +197,9 @@ const AddCustomer = () => {
     <>
       <form
         onSubmit={handleSaveCustomer}
-        className="flex justify-center w-full"
+        className="flex justify-center w-full p-2"
       >
-        <div className="flex flex-col border-3 border-info-dark pt-5">
+        <div className="flex flex-col bg-black pt-5 rounded border border-zinc-800">
           <div className="flex flex-wrap gap-4 justify-center">
             {customerfields.map((field) => (
               <div className="">
