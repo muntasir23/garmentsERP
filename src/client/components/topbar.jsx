@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setToggleSidebar } from './sidebar/sidebarSlice'
+// import { setToggleSidebar } from './sidebar/sidebarSlice'
 import { setToggleTheme } from '../AppSlice'
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import { CgOptions } from "react-icons/cg";

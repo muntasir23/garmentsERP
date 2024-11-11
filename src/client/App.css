@@ -30,7 +30,7 @@
   gap: 10px;
 }
 
-.displayNone{
+.displayNone {
   display: none;
   visibility: hidden;
 }
@@ -55,7 +55,9 @@
   visibility: hidden;
 }
 
-
+.cross {
+  display: none;
+}
 
 @keyframes logo-spin {
   from {
@@ -88,11 +90,11 @@
     left: -999px;
     transition: 0.3s ease-in-out;
   }
-  .none{
+  .none {
     display: none;
     visibility: hidden;
   }
-  .open{
+  .open {
     display: flex;
     visibility: visible;
   }
@@ -100,5 +102,8 @@
     left: 0px;
     transition: 0.3s ease-in-out;
   }
-  
+
+  .cross {
+    display: inline-block;
+  }
 }

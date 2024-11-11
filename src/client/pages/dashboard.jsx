@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../components/sidebar/sidebar'
+// import Sidebar from '../components/sidebar/sidebar'
 import Mainbar from '../components/mainbar'
 import { Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'

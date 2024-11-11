@@ -7,13 +7,12 @@ import Supplier from "../pages/supplier";
 import Customer from "../pages/customer";
 import Factory from "../pages/factory";
 import Item from "../pages/item";
-import Sidebar from "../components/Sidebar";
 import Home from "../pages/Home";
 import { useDispatch, useSelector } from "react-redux";
-import { setToggleSidebar } from "../components/sidebar/sidebarSlice";
 import { closeSidebar, toggleSidebar } from "../feature/sidebar/sideBarSlice";
 import { IoIosMoon } from "react-icons/io";
 import { setToggleTheme } from "../AppSlice";
+import { RxCrossCircled } from "react-icons/rx";
 import {
   Accordion,
   AccordionItem,
@@ -47,25 +46,11 @@ const Layout = () => {
         <div
           className={`w-[100%] relative top-0 ${
             isSidebarOpen ? "sidebar none" : "sidebarToggle displayNone open"
-          } sticky top-0 h-[100vh] bg-zinc-100 dark:bg-zinc-950`}
+          } sticky flex-col top-0 h-[100vh] bg-zinc-100 dark:bg-zinc-950`}
         >
-          <div className="p-2">
+          <div className="p-2 flex justify-between">
             <h1 className="text-left font-bold text-[22px]">Dashboard</h1>
-            <div className="mt-6 w-full text-left">
-              <ul className="w-full">
-                <li className="w-full">
-                  <NavLink
-                    className={`inline-block my-2 dark:hover:bg-lime-300 hover:bg-lime-300 w-full hover:text-black py-2 rounded px-1 dark:bg-zinc-800 bg-zinc-200 ${({
-                      isActive,
-                      isPending,
-                    }) => (isActive ? "active" : "")}`}
-                    to="/supplier"
-                  >
-                    Link One
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+            <h1 onClick={handleCloseSidebar} className="cross text-left font-bold text-[22px]"><RxCrossCircled /></h1>
           </div>
           {/* <Accordion variant="splitted">
             <AccordionItem
